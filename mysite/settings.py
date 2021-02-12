@@ -25,7 +25,7 @@ SECRET_KEY = '_^op!v_a1$^^ditxfq8ykf@#=(9+r(vtmoptzn7rcg1o5a18ej'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -123,3 +123,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'oyetola/static'
 ]
+
+# CSRF_COOKIE_SECURE = True
