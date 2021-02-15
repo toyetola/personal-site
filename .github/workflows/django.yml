@@ -8,7 +8,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: cluster-1    # Add your cluster name here.
+  GKE_CLUSTER: personal-site-cluster  # Add your cluster name here.
   GKE_ZONE: us-central1-c   # Add your cluster zone here.
   DEPLOYMENT_NAME: gke-test # Add your deployment name here.
   IMAGE: personal-site
@@ -42,13 +42,13 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: oyhetola/personal-site
         tag_with_ref: true
-    - name: Push to Docker Hub
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: ${{ secrets.PORT }}
+    # - name: Push to Docker Hub
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USER }}
+    #     key: ${{ secrets.PRIVATE_KEY }}
+    #     port: ${{ secrets.PORT }}
         # script: |
         #   /home/username/public_html/mysite/deploy/deploy-server.sh    
     # Setup gcloud CLI
