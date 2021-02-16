@@ -1,9 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
-env:
-  DEPLOYMENT_NAME: mysite-deployment
 metadata:
-  name: $DEPLOYMENT_NAME
+  name: mysite-deployment
   labels:
     app: personal-site
 spec:
