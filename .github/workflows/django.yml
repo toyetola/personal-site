@@ -91,7 +91,7 @@ jobs:
     - name: Deploy
       run: |-
         gcloud container clusters get-credentials $GKE_CLUSTER --zone $GKE_ZONE --project $PROJECT_ID
-        ./kustomize edit set image personal_site=gcr.io/$PROJECT_ID/$IMAGE:${GITHUB_SHA} personal-web=gcr.io/personal-site-304907/personal-site@sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3
+        ./kustomize edit set image personal_site=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA personal-web=gcr.io/personal-site-304907/personal-site@$GITHUB_SHA
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
