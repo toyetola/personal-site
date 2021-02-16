@@ -3,7 +3,7 @@ kind: Deployment
 env:
   DEPLOYMENT_NAME: mysite-deployment
 metadata:
-  name: ${{env.DEPLOYMENT_NAME}}
+  name: $DEPLOYMENT_NAME
   labels:
     app: personal-site
 spec:
