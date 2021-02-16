@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+env:
+  DEPLOYMENT_NAME: mysite-deployment
+metadata:
+  name: ${{env.DEPLOYMENT_NAME}}
+  labels:
+    app: personal-site
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: personal-site
+  template:
+    metadata:
+      labels:
+        app: personal-site
+    spec:
+      containers:
+      - name: personal-site
+        image: gcr.io/personal-site-304907/personal-site:latest
+        ports:
+        - containerPort: 80
