@@ -16,6 +16,8 @@ spec:
     spec:
       containers:
       - name: personal-site
-        image: gcr.io/personal-site-304907/personal-site:latest
+        image: docker.io/oyhetola/personal-site:latest
+        command: [ "sleep" ]
+        args: [ "infinity" ]
         ports:
         - containerPort: 80
