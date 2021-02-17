@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,3 +125,11 @@ STATICFILES_DIRS = [
 ]
 
 # CSRF_COOKIE_SECURE = True
+
+if os.path.exists(os.getcwd() + '/env.py'):
+    #env.py is excluded using the .gitignore file - when moving to production we can automatically set debug mode to off:
+    from .env import *
+else:
+    DJANGO_ENV = False
+
+DEBUG = DJANGO_ENV
